@@ -14,7 +14,5 @@ void OLED_DISPLAY_LIT (u8 x);//OLED屏亮度设置（0~255）
 void OLED_DISPLAY_CLEAR(void);//清屏操作
 void OLED_DISPLAY_8x16(u8 x,u8 y,u16 w);//显示8x16的单个字符 
 void OLED_DISPLAY_8x16_BUFFER(u8 row,u8 *str);//显示8x16的字符串
-
-
-		 				    
+			    
 #endif

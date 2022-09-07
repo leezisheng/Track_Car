@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\CORE;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\HARDWARE\ADC;..\HARDWARE\BEEP;..\HARDWARE\DMA;..\HARDWARE\IIC;..\HARDWARE\KEY;..\HARDWARE\LED;..\HARDWARE\TIMER;..\HARDWARE\IIC;..\SYSTEM\i2c;..\HARDWARE\OLED0561;..\HARDWARE\pwm;..\HARDWARE\KEY;..\HARDWARE\motor;..\HARDWARE\xunji</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\SYSTEM\i2c;..\HARDWARE\OLED0561;..\HARDWARE\pwm;..\HARDWARE\motor;..\HARDWARE\xunji;..\HARDWARE\LED</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -592,6 +592,11 @@
               <FileName>xunji.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\xunji\xunji.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled0561.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\OLED0561\oled0561.c</FilePath>
             </File>
           </Files>
         </Group>

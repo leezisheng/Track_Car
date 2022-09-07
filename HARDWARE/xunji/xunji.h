@@ -24,12 +24,12 @@ typedef enum
 	Left_Status_1    = 11000,
 	Left_Status_2    = 01000,
 	// 左发现黑线大转
-	BigLeft_Status_2 = 10000,
+	BigLeft_Status   = 10000,
 	// 右侧发现黑线
 	Right_Status_1   = 00011,
 	Right_Status_2   = 00010,
 	// 右发现黑线大转 
-	BigRight_Status_2= 00001,
+	BigRight_Status  = 00001,
 	// 全部发现黑线
 	Line_Status      = 11111
 }xunji_status_enum;

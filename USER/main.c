@@ -19,12 +19,9 @@
 #include "pwm.h"
 #include "motor.h"
 #include "xunji.h"
-
+#include "oled0561.h"
 
 /* -------------------------------外部变量-------------------------------------- */
-
-
-
 
 
 /* -------------------------------外部函数-------------------------------------- */
@@ -37,8 +34,17 @@
 static void BSP_Init(void);
 // 错误提示函数
 static void Error_Show(void);
+// 工作模式1：循迹模式
+void work_mode_xunji(void);
+// ADC读取电压值
+static void ADC_3CH_GetValue(void);
 
 /* -------------------------------全局变量-------------------------------------- */
+
+// 三个通道的电压值
+static uint32_t ADC_Value_1,ADC_Value_2,ADC_Value_3;
+
+
 // 循迹状态
 xunji_status_enum car_status;
 
@@ -55,7 +61,7 @@ int main(void)
 	
 	while(1)
 	{
-		car_status = XUNJI_detect_line();
+		
     }
 }
 
@@ -66,7 +72,6 @@ static void BSP_Init(void)
 	LED_PB5 = 1;
 	LED_PE5 = 1;
 	
-	
 	// LED端口初始化
 	LED_Init();			
 	// PWM初始化
@@ -75,6 +80,10 @@ static void BSP_Init(void)
 	IO_A_Init();
 	// 循迹GPIO初始化
 	XUNJI_Init();
+	// IIC初始化
+	I2C_Configuration();
+	// OLED初始化
+	OLED0561_Init();
 	
 	
 	// 	器件上电延时
@@ -93,7 +102,74 @@ static void Error_Show(void)
 		LED_PB5 = 1;
 		delay_ms(50);
 		LED_PB5 = 0;
+		delay_ms(50);
+		LED_PE5 = 0;
+		delay_ms(50);
+		LED_PE5 = 1;
 	}
 }
- 
+
+// 工作模式1：循迹模式
+void work_mode_xunji(void)
+{
+	car_status = XUNJI_detect_line();
+	
+	switch(car_status)
+	{
+		// 未发现黑线（后退）, 00000
+		case Back_Status:
+			CarBack();
+			return;
+		
+		// 中间发现黑线 , 01110/00100/01100/00110
+		case Center_Status_1:
+			CarGo();
+			return;
+		case Center_Status_2:
+			CarGo();
+			return;
+		case Center_Status_3:
+			CarGo();
+			return;
+		case Center_Status_4:
+			CarGo();
+			return;
+		
+		// 左侧发现黑线
+		case Left_Status_1:
+			CarLeft();
+			return;
+		case Left_Status_2:
+			CarLeft();
+			return;
+		
+		// 左发现黑线大转
+		case BigLeft_Status:
+			CarBigLeft();
+			return;
+		
+		// 右侧发现黑线
+		case Right_Status_1:
+			CarRight();
+		    return;
+		case Right_Status_2:
+			CarRight();
+		    return;
+		
+		// 右发现黑线大转 
+		case BigRight_Status:
+			CarBigRight();
+			return;
+		
+		// 全部发现黑线
+		case Line_Status:
+			CarStop();
+			return;
+		
+		default:
+			Error_Show();
+			return;
+	}
+}
+
 
