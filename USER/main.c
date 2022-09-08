@@ -4,12 +4,14 @@
 		2. 直流电机变向及变速：
 			（1）PWM ： PB0和PB1
 			（2）变相 ： PA1 PA2 PA3 PA4 GPIO
+		3. OLED：IIC-GPIOB GPIO_Pin_6、GPIOB GPIO_Pin_7
 	
 	使用芯片外设及其参数：
 		1. LED ：GPIO
 		2. 电机 ： 
 			（1） （ PA1 PA2 PA3 PA4 ）GPIO
 			（2） （ TIM3 CH3 CH4） arr = 999 ,psc = 0
+		3. OLED：IIC1-GPIOB GPIO_Pin_6、GPIOB GPIO_Pin_7
 */
 #include "stm32f10x.h"
 #include "delay.h"
@@ -20,13 +22,16 @@
 #include "motor.h"
 #include "xunji.h"
 #include "oled0561.h"
-
+#include "hc05.h"
+ 
 /* -------------------------------外部变量-------------------------------------- */
 
+//接收缓冲,最大USART_REC_LEN个字节
+extern u8  USART3_RX_BUF[USART3_REC_LEN];
+//接收状态标记	 0-14位为接收字节数，15位接收完成标志位
+extern u16 USART3_RX_STA;     
 
 /* -------------------------------外部函数-------------------------------------- */
-
-
 
 /* -------------------------------函数声明-------------------------------------- */
 
@@ -36,14 +41,11 @@ static void BSP_Init(void);
 static void Error_Show(void);
 // 工作模式1：循迹模式
 void work_mode_xunji(void);
-// ADC读取电压值
-static void ADC_3CH_GetValue(void);
+// 工作模式1：蓝牙模式
+void work_mode_bluetooth(void);
+
 
 /* -------------------------------全局变量-------------------------------------- */
-
-// 三个通道的电压值
-static uint32_t ADC_Value_1,ADC_Value_2,ADC_Value_3;
-
 
 // 循迹状态
 xunji_status_enum car_status;
@@ -61,6 +63,7 @@ int main(void)
 	
 	while(1)
 	{
+	
 		
     }
 }
@@ -80,10 +83,14 @@ static void BSP_Init(void)
 	IO_A_Init();
 	// 循迹GPIO初始化
 	XUNJI_Init();
-	// IIC初始化
-	I2C_Configuration();
-	// OLED初始化
-	OLED0561_Init();
+	// 蓝牙初始化，注意手机与单片机的蓝牙连接波特率是要9600
+	usart3_init(9600);
+
+	
+//	// IIC初始化
+//	I2C_Configuration();
+//	// OLED初始化
+//	OLED0561_Init();
 	
 	
 	// 	器件上电延时
@@ -172,4 +179,56 @@ void work_mode_xunji(void)
 	}
 }
 
-
+void work_mode_bluetooth(void)
+{
+   if(USART3_RX_STA&0x8000)
+	 {
+		 // 停车
+		if(USART3_RX_BUF[0]=='0')
+		 {
+			CarStop();
+		 }
+		 // 亮1号绿灯
+		if(USART3_RX_BUF[0]=='1')
+		 {
+			LED_PE5 = 1;	 
+		 }
+		 // 亮2号绿灯
+		if(USART3_RX_BUF[0]=='2')
+		 {
+			LED_PB5 = 1;	
+		 }
+		 // 亮2个绿灯
+		if(USART3_RX_BUF[0]=='3')
+		 {
+			LED_PB5 = 1;
+			LED_PE5 = 1;
+		 }
+		 // 关2个绿灯
+		if(USART3_RX_BUF[0]=='4')
+		 {
+			LED_PB5 = 0;
+			LED_PE5 = 0;		 
+		 }
+		 // 左转
+		if(USART3_RX_BUF[0]=='5')
+		 {
+			CarLeft();		  
+		 }
+		 // 右转
+		if(USART3_RX_BUF[0]=='6')
+		 {
+			CarRight();		  
+		 }
+		 // 前进
+		if(USART3_RX_BUF[0]=='7')
+		 {
+			CarGo();		  
+		 }	
+		 // 后退
+		 if(USART3_RX_BUF[0]=='8')
+		 {
+			CarBack();
+		 }
+	 }
+}

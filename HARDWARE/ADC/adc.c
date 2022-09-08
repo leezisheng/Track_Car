@@ -23,6 +23,8 @@ void  Adc_Init(void)
 	GPIO_InitTypeDef GPIO_InitStructure;
 
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA |RCC_APB2Periph_ADC1	, ENABLE );	  //使能ADC1通道时钟
+ 
+
 	RCC_ADCCLKConfig(RCC_PCLK2_Div6);   //设置ADC分频因子6 72M/6=12,ADC最大时间不能超过14M
 
 	//PA1 作为模拟通道输入引脚                         
@@ -40,14 +42,18 @@ void  Adc_Init(void)
 	ADC_InitStructure.ADC_NbrOfChannel = 1;	//顺序进行规则转换的ADC通道的数目
 	ADC_Init(ADC1, &ADC_InitStructure);	//根据ADC_InitStruct中指定的参数初始化外设ADCx的寄存器   
 
+  
 	ADC_Cmd(ADC1, ENABLE);	//使能指定的ADC1
+	
 	ADC_ResetCalibration(ADC1);	//使能复位校准  
+	 
 	while(ADC_GetResetCalibrationStatus(ADC1));	//等待复位校准结束
+	
 	ADC_StartCalibration(ADC1);	 //开启AD校准
 	while(ADC_GetCalibrationStatus(ADC1));	 //等待校准结束
+ 
 
 }				  
-
 //获得ADC值
 //ch:通道值 0~3
 u16 Get_Adc(u8 ch)   
@@ -73,30 +79,5 @@ u16 Get_Adc_Average(u8 ch,u8 times)
 	}
 	return temp_val/times;
 } 	 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
