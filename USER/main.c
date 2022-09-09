@@ -25,7 +25,7 @@
 #include "xunji.h"
 #include "oled0561.h"
 #include "hc05.h"
- 
+#include "adc.h"
 /* -------------------------------外部变量-------------------------------------- */
 
 //接收缓冲,最大USART_REC_LEN个字节
@@ -51,7 +51,8 @@ void work_mode_bluetooth(void);
 
 // 循迹状态
 xunji_status_enum car_status;
-
+// 电压值
+volatile static u16 ADC_Value[4];
 
 int main(void)
 {	
@@ -65,8 +66,10 @@ int main(void)
 	
 	while(1)
 	{
-	
-		
+		ADC_Value[0] = Get_Adc_Average(1,10);
+		ADC_Value[1] = Get_Adc_Average(4,10);
+		ADC_Value[2] = Get_Adc_Average(5,10);
+		ADC_Value[3] = Get_Adc_Average(6,10);	
     }
 }
 
@@ -87,7 +90,8 @@ static void BSP_Init(void)
 	XUNJI_Init();
 	// 蓝牙初始化，注意手机与单片机的蓝牙连接波特率是要9600
 	usart3_init(9600);
-
+	
+	Adc_Init();
 	
 //	// IIC初始化
 //	I2C_Configuration();

@@ -1,19 +1,6 @@
  #include "adc.h"
  #include "delay.h"
-//////////////////////////////////////////////////////////////////////////////////	 
-//本程序只供学习使用，未经作者许可，不得用于其它任何用途
-//ALIENTEK战舰STM32开发板
-//ADC 代码	   
-//正点原子@ALIENTEK
-//技术论坛:www.openedv.com
-//修改日期:2012/9/7
-//版本：V1.0
-//版权所有，盗版必究。
-//Copyright(C) 广州市星翼电子科技有限公司 2009-2019
-//All rights reserved									  
-////////////////////////////////////////////////////////////////////////////////// 
-	   
-		   
+	    
 //初始化ADC
 //这里我们仅以规则通道为例
 //我们默认将开启通道0~3																	   
@@ -31,6 +18,21 @@ void  Adc_Init(void)
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;		//模拟输入引脚
 	GPIO_Init(GPIOA, &GPIO_InitStructure);	
+	
+	//PA4 作为模拟通道输入引脚                         
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;		//模拟输入引脚
+	GPIO_Init(GPIOA, &GPIO_InitStructure);	
+	
+	//PA5 作为模拟通道输入引脚                         
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;		//模拟输入引脚
+	GPIO_Init(GPIOA, &GPIO_InitStructure);	
+	
+	//PA6 作为模拟通道输入引脚                         
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;		//模拟输入引脚
+	GPIO_Init(GPIOA, &GPIO_InitStructure);	
 
 	ADC_DeInit(ADC1);  //复位ADC1 
 
@@ -44,14 +46,10 @@ void  Adc_Init(void)
 
   
 	ADC_Cmd(ADC1, ENABLE);	//使能指定的ADC1
-	
-	ADC_ResetCalibration(ADC1);	//使能复位校准  
-	 
+	ADC_ResetCalibration(ADC1);	//使能复位校准   
 	while(ADC_GetResetCalibrationStatus(ADC1));	//等待复位校准结束
-	
 	ADC_StartCalibration(ADC1);	 //开启AD校准
 	while(ADC_GetCalibrationStatus(ADC1));	 //等待校准结束
- 
 
 }				  
 //获得ADC值
@@ -79,5 +77,4 @@ u16 Get_Adc_Average(u8 ch,u8 times)
 	}
 	return temp_val/times;
 } 	 
-
 

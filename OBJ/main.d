@@ -38,3 +38,4 @@
 ..\obj\main.o: ..\HARDWARE\OLED0561\oled0561.h
 ..\obj\main.o: ..\HARDWARE\HC05\hc05.h
 ..\obj\main.o: D:\Lee\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\main.o: ..\HARDWARE\ADC\adc.h
