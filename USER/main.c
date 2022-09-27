@@ -6,6 +6,7 @@
 			（2）变相 ： PA1 PA2 PA3 PA4 GPIO
 		3. OLED：IIC-GPIOB GPIO_Pin_6、GPIOB GPIO_Pin_7
 		4. USART3-HC05 ： PB10-TX PB11-RX
+		4. ADC ： PA1 PA4 PA5 PA6
 	
 	使用芯片外设及其参数：
 		1. LED ：GPIO
@@ -14,6 +15,7 @@
 			（2） （ TIM3 CH3 CH4） arr = 999 ,psc = 0
 		3. OLED：IIC1-GPIOB ： I2C_SCL—GPIO_Pin_6、I2C_SDA—GPIOB GPIO_Pin_7
 		4. USART3-HC05 ： PB10-TX PB11-RX
+		5. ADC ： PA1 PA4 PA5 PA6
 */
 #include "stm32f10x.h"
 #include "delay.h"
