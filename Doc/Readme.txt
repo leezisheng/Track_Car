@@ -1,0 +1,42 @@
+工程说明：
+	使用STM32F103ZET6开发板，控制小车运动
+	工作模式1：循迹模式-五路循迹
+	工作模式2：蓝牙模式-HC05透传遥控
+
+使用开发板引脚：
+	1. LED：PB5和PE5
+	2. 直流电机变向及变速：
+		（1）PWM ： PB0和PB1
+		（2）变相 ： PA1 PA2 PA3 PA4 GPIO
+	3. OLED：IIC-GPIOB GPIO_Pin_6、GPIOB GPIO_Pin_7
+	4. USART3-HC05 ： PB10-TX PB11-RX
+	4. ADC ： PA5 PA6
+	5. Beep ： PB8
+	6. 循迹模块 ： PC1 PC2 PC3 PC4 PC5
+	7.按键：PE3 PE4
+	
+	GPIO : PA1 PA2 PA3 PA4 
+	ADC  : PA5 PA6
+	USART1 : PA9 PA10
+	PWM  : PB0 PB1
+	LED  : PB5 PE5
+	OLED : PB6 PB7
+	BEEP : PB8
+	USART3-HC05 : PB10-TX PB11-RX
+	循迹模块     : PC1 PC2 PC3 PC4 PC5
+	按键：PE3 PE4
+
+使用芯片外设及其参数：
+	1. LED ：GPIO
+	2. 电机 ： 
+		（1） （ PA1 PA2 PA3 PA4 ）GPIO
+		（2） （ TIM3 CH3 CH4） arr = 999 ,psc = 0
+	3. OLED：IIC1-GPIOB ： I2C_SCL—GPIO_Pin_6、I2C_SDA—GPIOB GPIO_Pin_7
+	4. USART3-HC05 ：波特率9600 PB10-TX PB11-RX
+	5. ADC ： ADC1 PA5 PA6
+	6. Beep ： GPIO PB8
+	7. 循迹模块 ： PC1 PC2 PC3 PC4 PC5
+	8.按键：GPIO PE3 PE4 
+
+扩展接口：
+	1. USART1： USART1_TX-PA9   USART1_RX-PA10

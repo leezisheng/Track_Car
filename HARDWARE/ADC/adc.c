@@ -8,21 +8,10 @@ void  Adc_Init(void)
 { 	
 	ADC_InitTypeDef ADC_InitStructure; 
 	GPIO_InitTypeDef GPIO_InitStructure;
-
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA |RCC_APB2Periph_ADC1	, ENABLE );	  //使能ADC1通道时钟
- 
-
-	RCC_ADCCLKConfig(RCC_PCLK2_Div6);   //设置ADC分频因子6 72M/6=12,ADC最大时间不能超过14M
-
-	//PA1 作为模拟通道输入引脚                         
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;		//模拟输入引脚
-	GPIO_Init(GPIOA, &GPIO_InitStructure);	
-	
-	//PA4 作为模拟通道输入引脚                         
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;		//模拟输入引脚
-	GPIO_Init(GPIOA, &GPIO_InitStructure);	
+	//使能ADC1通道时钟
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA |RCC_APB2Periph_ADC1, ENABLE );	  
+	//设置ADC分频因子6 72M/6=12,ADC最大时间不能超过14M
+	RCC_ADCCLKConfig(RCC_PCLK2_Div6);   
 	
 	//PA5 作为模拟通道输入引脚                         
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
@@ -53,7 +42,7 @@ void  Adc_Init(void)
 
 }				  
 //获得ADC值
-//ch:通道值 0~3
+//ch:通道值 4和5	
 u16 Get_Adc(u8 ch)   
 {
   	//设置指定ADC的规则组通道，一个序列，采样时间

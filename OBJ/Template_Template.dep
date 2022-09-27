@@ -1,6 +1,6 @@
 Dependencies for Project 'Template', Target 'Template': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\main.c)(0x6332E50E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\i2c -I ..\HARDWARE\OLED0561 -I ..\HARDWARE\pwm -I ..\HARDWARE\motor -I ..\HARDWARE\xunji -I ..\HARDWARE\LED -I ..\HARDWARE\HC05 -I ..\HARDWARE\ADC -I ..\HARDWARE\BEEP-ID:\Lee\MDK5\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x6333005E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\i2c -I ..\HARDWARE\OLED0561 -I ..\HARDWARE\pwm -I ..\HARDWARE\motor -I ..\HARDWARE\xunji -I ..\HARDWARE\LED -I ..\HARDWARE\HC05 -I ..\HARDWARE\ADC -I ..\HARDWARE\BEEP-ID:\Lee\MDK5\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (D:\Lee\MDK5\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -163,7 +163,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\SYSTEM\usart\usart.c)(0x631399C9)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\i2c -I ..\HARDWARE\OLED0561 -I ..\HARDWARE\pwm -I ..\HARDWARE\motor -I ..\HARDWARE\xunji -I ..\HARDWARE\LED -I ..\HARDWARE\HC05 -I ..\HARDWARE\ADC -I ..\HARDWARE\BEEP-ID:\Lee\MDK5\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
+F (..\SYSTEM\usart\usart.c)(0x6332F5B6)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\i2c -I ..\HARDWARE\OLED0561 -I ..\HARDWARE\pwm -I ..\HARDWARE\motor -I ..\HARDWARE\xunji -I ..\HARDWARE\LED -I ..\HARDWARE\HC05 -I ..\HARDWARE\ADC -I ..\HARDWARE\BEEP-ID:\Lee\MDK5\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
 I (..\SYSTEM\sys\sys.h)(0x63137EEF)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -193,7 +193,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\SYSTEM\usart\usart.h)(0x63139A30)
+I (..\SYSTEM\usart\usart.h)(0x6332F5B6)
 I (D:\Lee\MDK5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\Lee\MDK5\ARM\ARMCC\include\stdarg.h)(0x60252376)
 I (D:\Lee\MDK5\ARM\ARMCC\include\stdlib.h)(0x60252374)
@@ -900,7 +900,6 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\README.TXT)(0x00000000)()
 F (..\HARDWARE\LED\led.c)(0x6313A4F2)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\i2c -I ..\HARDWARE\OLED0561 -I ..\HARDWARE\pwm -I ..\HARDWARE\motor -I ..\HARDWARE\xunji -I ..\HARDWARE\LED -I ..\HARDWARE\HC05 -I ..\HARDWARE\ADC -I ..\HARDWARE\BEEP-ID:\Lee\MDK5\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
 I (..\HARDWARE\LED\led.h)(0x6313A4F2)
 I (..\SYSTEM\sys\sys.h)(0x63137EEF)
@@ -1094,7 +1093,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\HARDWARE\HC05\hc05.h)(0x631A1508)
 I (D:\Lee\MDK5\ARM\ARMCC\include\stdio.h)(0x60252374)
-F (..\HARDWARE\ADC\adc.c)(0x631B59D0)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\i2c -I ..\HARDWARE\OLED0561 -I ..\HARDWARE\pwm -I ..\HARDWARE\motor -I ..\HARDWARE\xunji -I ..\HARDWARE\LED -I ..\HARDWARE\HC05 -I ..\HARDWARE\ADC -I ..\HARDWARE\BEEP-ID:\Lee\MDK5\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\adc.o --omf_browse ..\obj\adc.crf --depend ..\obj\adc.d)
+F (..\HARDWARE\ADC\adc.c)(0x6332EAB3)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\i2c -I ..\HARDWARE\OLED0561 -I ..\HARDWARE\pwm -I ..\HARDWARE\motor -I ..\HARDWARE\xunji -I ..\HARDWARE\LED -I ..\HARDWARE\HC05 -I ..\HARDWARE\ADC -I ..\HARDWARE\BEEP-ID:\Lee\MDK5\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\adc.o --omf_browse ..\obj\adc.crf --depend ..\obj\adc.d)
 I (..\HARDWARE\ADC\adc.h)(0x631B58A8)
 I (..\SYSTEM\sys\sys.h)(0x63137EEF)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
@@ -1158,3 +1157,4 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\SYSTEM\delay\delay.h)(0x6313996F)
+F (..\Doc\Readme.txt)(0x6333005E)()
