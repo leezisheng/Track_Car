@@ -75,8 +75,7 @@ int main(void)
 	
 	while(1)
 	{
-		ADC_Value[2] = Get_Adc_Average(5,10);
-		ADC_Value[3] = Get_Adc_Average(6,10);	
+		car_status = XUNJI_detect_line();
     }
 }
 
@@ -187,7 +186,6 @@ void work_mode_xunji(void)
 			return;
 		
 		default:
-			Error_Show();
 			return;
 	}
 }

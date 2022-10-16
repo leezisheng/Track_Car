@@ -12,13 +12,13 @@ void XUNJI_Init(void)
 	
 	GPIO_InitStructure.GPIO_Pin =GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5; //TIM_CH1
 	GPIO_InitStructure.GPIO_Mode =GPIO_Mode_IPU;  //上拉输出
-	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	GPIO_Init(GPIOC, &GPIO_InitStructure);
 }
 //----------------------------------------------------------------------------------------------
 
 
 // 黑线寻迹函数
-// S_Trail_Input的低三位分别对应[PB5、PB4、PB3，PB1]的状态值
+// S_Trail_Input的低三位分别对应[PC5、PC4、PC3，PC2，PC1]的状态值
 // 未碰到黑线(接收到红外光)：对应状态 = 0
 // 碰到黑线(未接收到红外光)：对应状态 = 1
 //----------------------------------------------------
